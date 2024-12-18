@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 const constantRoutes = [
   {
-    path: "/index",
+    path: "",
     name: "首页",
     component: () => import("@/views/home"),
   },
@@ -10,10 +10,10 @@ const constantRoutes = [
     name: "项目",
     component: () => import("@/views/project"),
   },
-  {
-    path: "/:pathMatch(.*)*",
-    redirect: "/index",
-  },
+  // {
+  //   path: "/:pathMatch(.*)*",
+  //   redirect: "/index",
+  // },
 ];
 const router = createRouter({
   history: createWebHistory(),
