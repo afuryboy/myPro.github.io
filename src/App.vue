@@ -9,6 +9,9 @@ const compony = [
   {
     name: "百度科技",
   },
+  {
+    name: "百度科技12",
+  },
 ];
 </script>
 
