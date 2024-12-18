@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 const constantRoutes = [
   {
-    path: "/",
+    path: "/compony",
     name: "首页",
     component: () => import("@/views/home"),
   },
