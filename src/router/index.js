@@ -1,7 +1,7 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 const constantRoutes = [
   {
-    path: "/compony",
+    path: "/",
     name: "首页",
     component: () => import("@/views/home"),
   },
@@ -16,7 +16,7 @@ const constantRoutes = [
   // },
 ];
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: constantRoutes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

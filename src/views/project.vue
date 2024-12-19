@@ -105,6 +105,35 @@ const projectMap = {
                 }
             ]
         }
+    ],
+    2: [
+
+    ],
+    3: [
+        {
+            projectName: '体感游戏',
+            desc: '为sense-u互动广告屏设计的体感游戏',
+            images: [
+                {
+                    url: '1-1.png',
+                    width: 600,
+                    desc: ''
+                }
+            ]
+        },
+    ],
+    4: [
+        {
+            projectName: '百度hi企业管理平台',
+            desc: '现在更名为如流',
+            images: [
+                {
+                    url: '1-1.png',
+                    width: 600,
+                    desc: ''
+                }
+            ] 
+        }
     ]
 }
 const pros = computed(() => {
