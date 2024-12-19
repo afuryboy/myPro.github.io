@@ -222,6 +222,7 @@ const pros = computed(() => {
   // height: 100%;
   min-height: 100%;
   padding: 20px;
+  overflow: scroll;
   .pro-item {
     color: #fff;
     margin-bottom: 80px;

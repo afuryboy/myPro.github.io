@@ -28,7 +28,7 @@ const compony = [
   {
     name: "百度科技",
     icon: "baidu.png",
-    desc: '百度以“用科技让复杂的世界更简单”为使命，以“成为最懂用户，并能帮助人们成长的全球顶级高科技公司”为愿景。',
+    desc: '用科技让复杂的世界更简单',
     id: 4,
     post: '前端开发工程师',
     time: '2016.11-2018.1'
@@ -88,7 +88,8 @@ const goProject = (item) => {
     align-items: center;
   }
   .c-item {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 200px;
     border: 1px solid #ccc;
     margin-top: 20px;
