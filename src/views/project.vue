@@ -1,162 +1,239 @@
 <template>
-    <div class="pro-box">
-        <div class="pro-item" v-for="pro in pros">
-            <div class="pro-title">{{ pro.projectName }}</div>
-            <div class="pro-desc">{{ pro.desc }}</div>
-            <div class="pro-content">
-                <div class="pro-content-item" v-for="item in pro.images">
-                    <img :src="'project/'+id+'/'+item.url" alt="" :width="item.width">
-                </div>
-            </div>
+  <div class="pro-box">
+    <template v-if="id == 5">
+        <div style="color: #fff;font-size: 20px;">暂无资料,请返回</div>
+    </template>
+    <template v-else>
+      <div class="pro-item" v-for="pro in pros">
+        <div class="pro-title">{{ pro.projectName }}</div>
+        <div class="pro-desc">{{ pro.desc }}</div>
+        <div class="pro-content">
+          <div class="pro-content-item" v-for="item in pro.images">
+            <video
+              controls
+              :src="'project/' + id + '/' + item.url"
+              v-if="item.type === 'video'"
+            ></video>
+            <img
+              :src="'project/' + id + '/' + item.url"
+              alt=""
+              :width="item.width"
+              v-else
+            />
+          </div>
         </div>
-    </div>
+      </div>
+    </template>
+  </div>
 </template>
 <script setup>
-
-const route = useRoute()
+const route = useRoute();
 const id = computed(() => {
-    return route.query.id
-})
+  return route.query.id;
+});
 const projectMap = {
-    1: [
+  1: [
+    {
+      projectName: "场景编辑器",
+      desc: "场景编辑器的项目背景是为了解决服务机器人现有平台中任务管理编辑任务模式单一固定等缺点，无法充分利用机器人功能，因此才有了场景编辑器这一低代码任务平台。",
+      images: [
         {
-            projectName: '场景编辑器',
-            desc: '场景编辑器的项目背景是为了解决服务机器人现有平台中任务管理编辑任务模式单一固定等缺点，无法充分利用机器人功能，因此才有了场景编辑器这一低代码任务平台。',
-            images: [
-                {
-                    url: '1-1.png',
-                    width: 600,
-                    desc: ''
-                }
-            ]
+          url: "1-1.png",
+          width: 800,
+          desc: "",
+        },
+      ],
+    },
+    {
+      projectName: "动作编辑器",
+      desc: "动作编辑器的项目背景是为机器人头部面部底部的动作做一个时间轴的配置，可预览。",
+      images: [
+        {
+          url: "2-2.png",
+          width: 800,
+          desc: "",
+        },
+      ],
+    },
+    {
+      projectName: "算法平台",
+      desc: "演示机器人算法识别能力",
+      images: [
+        {
+          url: "6-1.png",
+          width: 800,
+          desc: "",
         },
         {
-            projectName: '动作编辑器',
-            desc: '动作编辑器的项目背景是为机器人头部面部底部的动作做一个时间轴的配置，可预览。',
-            images: [
-                {
-                    url: '2-2.png',
-                    width: 600,
-                    desc: ''
-                }
-            ]
+          url: "6-2.png",
+          width: 800,
+          desc: "",
+        },
+      ],
+    },
+    {
+      projectName: "机器人统一平台",
+      desc: "抽离各个类型机器人公共部分",
+      images: [
+        {
+          url: "3-1.png",
+          width: 800,
+          desc: "",
         },
         {
-            projectName: '算法平台',
-            desc: '演示机器人算法识别能力',
-            images: [
-                {
-                    url: '6-1.png',
-                    width: 600,
-                    desc: ''
-                },
-                {
-                    url: '6-2.png',
-                    width: 600,
-                    desc: ''
-                }
-            ]
+          url: "3-2.png",
+          width: 800,
+          desc: "",
         },
         {
-            projectName: '机器人统一平台',
-            desc: '抽离各个类型机器人公共部分',
-            images: [
-                {
-                    url: '3-1.png',
-                    width: 800,
-                    desc: ''
-                },
-                {
-                    url: '3-2.png',
-                    width: 800,
-                    desc: ''
-                },
-                {
-                    url: '3-3.png',
-                    width: 800,
-                    desc: ''
-                },
-                {
-                    url: '3-4.png',
-                    width: 800,
-                    desc: ''
-                }
-            ]
+          url: "3-3.png",
+          width: 800,
+          desc: "",
         },
         {
-            projectName: '服务机器人平台',
-            desc: '服务机器人专属平台',
-            images: [
-                {
-                    url: '4-1.png',
-                    width: 800,
-                    desc: ''
-                }
-            ]
+          url: "3-4.png",
+          width: 800,
+          desc: "",
+        },
+      ],
+    },
+    {
+      projectName: "服务机器人平台",
+      desc: "服务机器人专属平台",
+      images: [
+        {
+          url: "4-1.png",
+          width: 800,
+          desc: "",
+        },
+      ],
+    },
+    {
+      projectName: "配送机器人平台",
+      desc: "配送机器人专属平台",
+      images: [
+        {
+          url: "5-1.png",
+          width: 800,
+          desc: "",
+        },
+      ],
+    },
+  ],
+  2: [
+    {
+      projectName: "okx法币（响应式改版）",
+      desc: "ok交易所出入金, 当时交易所的网站不是响应式，pc和手机端2套代码，法币是整个公司所有业务中第一个开始响应式改版的业务。截图仅展示法币首页界面。",
+      images: [
+        {
+          url: "2-1.png",
+          width: 800,
+          desc: "",
         },
         {
-            projectName: '配送机器人平台',
-            desc: '配送机器人专属平台',
-            images: [
-                {
-                    url: '5-1.png',
-                    width: 800,
-                    desc: ''
-                }
-            ]
-        }
-    ],
-    2: [
-
-    ],
-    3: [
-        {
-            projectName: '体感游戏',
-            desc: '为sense-u互动广告屏设计的体感游戏',
-            images: [
-                {
-                    url: '1-1.png',
-                    width: 600,
-                    desc: ''
-                }
-            ]
+          url: "2-2.png",
+          width: 800,
+          desc: "",
         },
-    ],
-    4: [
+      ],
+    },
+  ],
+  3: [
+    {
+      projectName: "商汤聚晴",
+      desc: "基于人脸识别的AI大数据的创新型智能营销平台。内部集成SenseU线下一体机、SenseFocus线下广告屏、SenseADX线上广告交易平台、SenseAR线上广告投放平台.",
+    },
+    {
+      projectName: "通用型js sdk设计",
+      desc: "github地址：https://github.com/afuryboy/blog/blob/master/source/_drafts/jssdk.md",
+    },
+    {
+      projectName: "SenseInsight人群洞察平台",
+      desc: "SenseInsight人群洞察产品是基于商汤科技人脸、属性识别等计算机视觉技术，致力于实现户外广告业务等数字化升级的人群洞察产品，可实现人群触达、人群观看、观看时长、人群画像等数据统计功能。",
+    },
+    {
+      projectName: "体感游戏（SenseU h5游戏-跳一跳  ）",
+      desc: "为sense-u互动广告屏设计的体感游戏",
+      images: [
         {
-            projectName: '百度hi企业管理平台',
-            desc: '现在更名为如流',
-            images: [
-                {
-                    url: '1-1.png',
-                    width: 600,
-                    desc: ''
-                }
-            ] 
-        }
-    ]
-}
+          url: "st-video-1.mp4",
+          width: 600,
+          desc: "",
+          type: "video",
+        },
+      ],
+    },
+    {
+      projectName: "大屏类项目",
+      desc: "至今为止做过SenseInsight Demo、北京现代4s店Demo、商汤智广SenseNeo、SenseDOOH户外广告分析平台等大屏项目。 ",
+      images: [
+        {
+          url: "st-video-2.mp4",
+          width: 600,
+          desc: "",
+          type: "video",
+        },
+        {
+          url: "st-video-3.mp4",
+          width: 600,
+          desc: "",
+          type: "video",
+        },
+        {
+          url: "st-video-4.mp4",
+          width: 600,
+          desc: "",
+          type: "video",
+        },
+      ],
+    },
+    {
+      projectName: "h5落地页",
+      desc: "用户上传个人照片，利用商汤图像处理技术，进行人脸融合，主要吸引流量进行优惠券发放。",
+      images: [
+        {
+          url: "st-1.jpg",
+          width: 400,
+          desc: "",
+        },
+      ],
+    },
+  ],
+  4: [
+    {
+      projectName: "百度hi企业管理后台",
+      desc: "因为时间比较久没有项目保存，",
+      images: [],
+    },
+    {
+      projectName: "其他小一点的项目包括注册、百度hi内一些流程页面，邮件页面",
+      desc: "因为时间比较久没有项目保存，",
+      images: [],
+    },
+  ],
+};
 const pros = computed(() => {
-    return projectMap[id.value]
-})
+  return projectMap[id.value];
+});
 </script>
 <style scoped lang="scss">
 .pro-box {
-    background: #000;
-    // height: 100%;
-    padding: 20px;
-    .pro-item {
-        color: #fff;
-        margin-bottom: 80px;
-        .pro-title {
-            font-weight: bold;
-        }
-        .pro-desc {
-            font-size: 12px;
-            color: #ccc;
-            text-indent: 2em;
-            padding: 10px;
-        }
+  background: #000;
+  // height: 100%;
+  min-height: 100%;
+  padding: 20px;
+  .pro-item {
+    color: #fff;
+    margin-bottom: 80px;
+    .pro-title {
+      font-weight: bold;
     }
+    .pro-desc {
+      font-size: 12px;
+      color: #ccc;
+      text-indent: 2em;
+      padding: 10px;
+    }
+  }
 }
 </style>
