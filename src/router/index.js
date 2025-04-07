@@ -10,11 +10,11 @@ const constantRoutes = [
     name: "项目",
     component: () => import("@/views/project"),
   },
-  {
-    path: "/shiboqi",
-    name: "项目",
-    component: () => import("@/views/shiboqi"),
-  },
+  // {
+  //   path: "/shiboqi",
+  //   name: "项目",
+  //   component: () => import("@/views/shiboqi"),
+  // },
   // {
   //   path: "/:pathMatch(.*)*",
   //   redirect: "/index",
